@@ -1,0 +1,38 @@
+{
+  "name": "bitsong-subql-transfers",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "subql build",
+    "codegen": "subql codegen",
+    "start:docker": "docker-compose pull && docker-compose up --remove-orphans",
+    "dev": "subql codegen && subql build && docker-compose pull && docker-compose up --remove-orphans",
+    "prepack": "rm -rf dist && npm run build",
+    "test": "subql build && subql-node-cosmos test"
+  },
+  "homepage": "https://github.com/bitsongofficial/subql-transfers",
+  "repository": "github:bitsongofficial/subql-transfers",
+  "files": [
+    "dist",
+    "schema.graphql",
+    "project.yaml"
+  ],
+  "author": "Angelo Recca",
+  "license": "MIT",
+  "devDependencies": {
+    "@cosmjs/stargate": "^0.32.4",
+    "@subql/cli": "latest",
+    "@subql/node-cosmos": "latest",
+    "@subql/testing": "latest",
+    "@subql/types-core": "^2.0.0",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@subql/types-cosmos": "^4.0.0",
+    "@types/node": "^22.10.2",
+    "ts-proto": "^2.6.0",
+    "tslib": "^2.8.1"
+  },
+  "packageManager": "pnpm@8.0.0"
+}
