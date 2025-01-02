@@ -40,6 +40,7 @@ const project: CosmosProject = {
   dataSources: [
     {
       kind: CosmosDatasourceKind.Runtime,
+       //  v018 -> post v020 == 19,818,776 -> 20,318,032
       //startBlock: 2966151,
       //startBlock: 19818776,
       startBlock: 19828200,
@@ -51,6 +52,27 @@ const project: CosmosProject = {
             kind: CosmosHandlerKind.Event,
             filter: {
               type: "slash",
+            }
+          },
+          {
+            handler: "handleEvent",
+            kind: CosmosHandlerKind.Event,
+            filter: {
+              type: "create_validator",
+            }
+          },
+          {
+            handler: "handleEvent",
+            kind: CosmosHandlerKind.Event,
+            filter: {
+              type: "delegate",
+            }
+          },
+          {
+            handler: "handleEvent",
+            kind: CosmosHandlerKind.Event,
+            filter: {
+              type: "unbond",
             }
           },
         ],
